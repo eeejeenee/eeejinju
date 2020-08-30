@@ -421,8 +421,8 @@ nav ul.right {
   background-size: cover;
   background-position: center center;
   text-align: center;
-  padding-top: 130px;
-  padding-bottom: 100px;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 #header .header-thumb {
@@ -454,7 +454,7 @@ nav ul.right {
 }
 
 .header-one {
-  background: url('../images/102table_1.jpg') no-repeat;
+  background: url('../images/102table/102table_1.jpg') no-repeat;
   height: 60vh !important;
   min-height: 520px;
   padding-top: 150px !important;
@@ -472,7 +472,7 @@ nav ul.right {
   background: url('../images/header-five-bg.jpg') no-repeat;
 }
 .header-102table{
-  background: url('../images/102table_1.jpg') no-repeat;
+  background: url('../images/102table/102table_1.jpg') no-repeat;
 }
 
 
@@ -530,6 +530,21 @@ nav ul.right {
     text-align: center;
     text-decoration: none;
     margin-bottom: 4px;
+}
+
+.subimages {
+  /* float: left; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subimage {
+  width: 30%;
+  float: left;
+  margin-right: 10px;
+
+  /* padding-left: 10px; */
+  /* position: absolute; */
 }
 
 /*filter css*/
@@ -898,9 +913,38 @@ footer {
   .contact-submit {
 	width: 70%;
   }
-
+  .subimages {
+    /* float: left; */
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .subimage {
+    width: 100%;
+    float: left;
+    margin-right: 10px;
+  
+    /* padding-left: 10px; */
+    /* position: absolute; */
+  }
 }
 
 @media (max-width: 450px) {
   .intro-inner {top: 50%;}
+  
+  .subimages {
+    /* float: left; */
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .subimage {
+    width: 100%;
+    float: left;
+    margin-right: 10px;
+  
+    /* padding-left: 10px; */
+    /* position: absolute; */
+  }
+
 }
