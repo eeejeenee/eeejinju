@@ -10,7 +10,7 @@ http://www.tooplate.com/view/2082-pure-mix
 ------------------------------------- */
 body {
 		background: #ffffff;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif, 'Nanum Gothic', sans-serif;
     font-style: normal;
     font-weight: 300;
     position: relative;
@@ -426,16 +426,22 @@ nav ul.right {
 }
 
 #header .header-thumb {
-  background: #ffffff;
-  border: 10px solid #f9f9f9;
+  background: #f8f9fab8;
+  border: 5px solid #f9f9f9;
   padding: 62px 20px 62px 20px;
+}
+
+.header-thumb h3 {
+  letter-spacing: 0.1rem;
+  line-height: 1.7;
 }
 
 .header-one .header-thumb,
 .header-two .header-thumb,
 .header-three .header-thumb,
 .header-four .header-thumb,
-.header-five .header-thumb {
+.header-five .header-thumb,
+.header-102table .header-thumb {
   padding: 32px 20px 32px 20px !important;
 }
 
@@ -448,7 +454,7 @@ nav ul.right {
 }
 
 .header-one {
-  background: url('../images/header-bg.jpg') no-repeat;
+  background: url('../images/102table_1.jpg') no-repeat;
   height: 60vh !important;
   min-height: 520px;
   padding-top: 150px !important;
@@ -465,6 +471,11 @@ nav ul.right {
 .header-five {
   background: url('../images/header-five-bg.jpg') no-repeat;
 }
+.header-102table{
+  background: url('../images/102table_1.jpg') no-repeat;
+}
+
+
 
 /* Portfolio section styles
 /* ========================================== */
