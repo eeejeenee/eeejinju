@@ -541,7 +541,7 @@ nav ul.right {
 .subimage {
   width: 30%;
   float: left;
-  margin-right: 10px;
+  margin: 5px;
 
   /* padding-left: 10px; */
   /* position: absolute; */
@@ -922,7 +922,7 @@ footer {
   .subimage {
     width: 100%;
     float: left;
-    margin-right: 10px;
+    margin: 5px;
   
     /* padding-left: 10px; */
     /* position: absolute; */
@@ -941,7 +941,7 @@ footer {
   .subimage {
     width: 100%;
     float: left;
-    margin-right: 10px;
+    margin: 5px;
   
     /* padding-left: 10px; */
     /* position: absolute; */
