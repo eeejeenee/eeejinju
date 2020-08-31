@@ -63,6 +63,17 @@ p {
   line-height: 28px;
   word-spacing: 1px;
   letter-spacing: 1px;
+
+  /* font-size: 14px;
+  line-height: 1.5rem;
+  word-spacing: 0.1rem;
+  letter-spacing: 0.1rem; */
+}
+.context {
+  font-size: 14px;
+  line-height: 1.5rem;
+  word-spacing: 0.1rem;
+  letter-spacing: 0.1rem;
 }
 
 a {
