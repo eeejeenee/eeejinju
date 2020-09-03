@@ -490,6 +490,9 @@ nav ul.right {
   background: url('../images/hambug/shambug_3.jpg') no-repeat;
 }
 
+.header-watch{
+  background: url('../images/watch/swatch_1.jpg') no-repeat;
+}
 /* Portfolio section styles
 /* ========================================== */
 #portfolio {
