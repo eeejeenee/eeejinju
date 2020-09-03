@@ -1,107 +1,107 @@
 
-/* jQuery Pre loader
- -----------------------------------------------*/
-$(window).load(function () {
-  $('.preloader').fadeOut(1000); // set duration in brackets    
+ /* jQuery Pre loader
+  -----------------------------------------------*/
+$(window).load(function(){
+    $('.preloader').fadeOut(1000); // set duration in brackets    
 });
 
 
-/* Google Map
+ /* Google Map
 -----------------------------------------------*/
 var map = '';
 var center;
 
 function initialize() {
-  var mapOptions = {
-    zoom: 16,
-    center: new google.maps.LatLng(13.758468, 100.567481),
-    scrollwheel: false
-  };
+    var mapOptions = {
+      zoom: 16,
+      center: new google.maps.LatLng(13.758468, 100.567481),
+      scrollwheel: false
+    };
+  
+    map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
 
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-  google.maps.event.addDomListener(map, 'idle', function () {
-    calculateCenter();
-  });
-
-  google.maps.event.addDomListener(window, 'resize', function () {
-    map.setCenter(center);
-  });
+    google.maps.event.addDomListener(map, 'idle', function() {
+        calculateCenter();
+    });
+  
+    google.maps.event.addDomListener(window, 'resize', function() {
+        map.setCenter(center);
+    });
 }
 
 function calculateCenter() {
   center = map.getCenter();
 }
 
-function loadGoogleMap() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
-  document.body.appendChild(script);
+function loadGoogleMap(){
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
+    document.body.appendChild(script);
 }
 
-$(function () {
+$(function(){
   loadGoogleMap();
 });
 
 
 /* Istope Portfolio
 -----------------------------------------------*/
-jQuery(document).ready(function ($) {
+jQuery(document).ready(function($){
 
-  if ($('.iso-box-wrapper').length > 0) {
+  if ( $('.iso-box-wrapper').length > 0 ) { 
 
-    var $container = $('.iso-box-wrapper'),
-      $imgs = $('.iso-box img');
+      var $container  = $('.iso-box-wrapper'), 
+        $imgs     = $('.iso-box img');
 
-    $container.imagesLoaded(function () {
+      $container.imagesLoaded(function () {
 
-      $container.isotope({
+        $container.isotope({
         layoutMode: 'fitRows',
         itemSelector: '.iso-box'
+        });
+
+        $imgs.load(function(){
+          $container.isotope('reLayout');
+        })
+
       });
 
-      $imgs.load(function () {
-        $container.isotope('reLayout');
-      })
+      //filter items on button click
 
-    });
+      $('.filter-wrapper li a').click(function(){
 
-    //filter items on button click
+          var $this = $(this), filterValue = $this.attr('data-filter');
 
-    $('.filter-wrapper li a').click(function () {
-
-      var $this = $(this), filterValue = $this.attr('data-filter');
-
-      $container.isotope({
+      $container.isotope({ 
         filter: filterValue,
-        animationOptions: {
-          duration: 750,
-          easing: 'linear',
-          queue: false,
-        }
-      });
+        animationOptions: { 
+            duration: 750, 
+            easing: 'linear', 
+            queue: false, 
+        }                
+      });             
 
       // don't proceed if already selected 
 
-      if ($this.hasClass('selected')) {
-        return false;
+      if ( $this.hasClass('selected') ) { 
+        return false; 
       }
 
       var filter_wrapper = $this.closest('.filter-wrapper');
       filter_wrapper.find('.selected').removeClass('selected');
       $this.addClass('selected');
 
-      return false;
-    });
+        return false;
+      }); 
 
   }
 
 });
 
 
-/* Navigation Bar
- -----------------------------------------------*/
+ /* Navigation Bar
+  -----------------------------------------------*/
 // $(document).ready(function() { 
 //     "use strict";
 
@@ -120,7 +120,7 @@ jQuery(document).ready(function ($) {
 //                 }
 //             }, false );
 //         }
-
+        
 //         function scrollPage() {
 //             var sy = scrollY();
 //             if ( sy >= stickynav ) {
@@ -131,7 +131,7 @@ jQuery(document).ready(function ($) {
 //             }
 //             didScroll = false;
 //         }
-
+        
 //         function scrollY() {
 //             return window.pageYOffset || docElem.scrollTop;
 //         }        
@@ -142,7 +142,7 @@ jQuery(document).ready(function ($) {
 
 
 // $(document).ready(function(){
-
+            
 //     "use strict";
 
 //     $('.menu-container').each(function(index) {
@@ -153,13 +153,13 @@ jQuery(document).ready(function ($) {
 //     $('.menu-container .circle').click(function() {
 //         var linkedVideo = $('section').closest('body').find('.list-menu[menu-link="' + $(this).attr('menu-link') + '"]');
 //         linkedVideo.toggleClass('reveal-modal');
-
+       
 //     });
 
 //     $('section').closest('body').find('.close-iframe').click(function() {
 //         $(this).closest('.list-menu').toggleClass('reveal-modal');
 //     });
-
+    
 
 //   /* wow
 //   -------------------------------*/
@@ -168,52 +168,3 @@ jQuery(document).ready(function ($) {
 //   });
 
 // 이미지 용량 관리해서 로드 빠르게하기
-document.addEventListener("DOMContentLoaded", function () {
-  var lazyloadImages;
-
-  if ("IntersectionObserver" in window) {
-    lazyloadImages = document.querySelectorAll(".lazy");
-    var imageObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var image = entry.target;
-          image.src = image.dataset.src;
-          image.classList.remove("lazy");
-          imageObserver.unobserve(image);
-        }
-      });
-    });
-
-    lazyloadImages.forEach(function (image) {
-      imageObserver.observe(image);
-    });
-  } else {
-    var lazyloadThrottleTimeout;
-    lazyloadImages = document.querySelectorAll(".lazy");
-
-    function lazyload() {
-      if (lazyloadThrottleTimeout) {
-        clearTimeout(lazyloadThrottleTimeout);
-      }
-
-      lazyloadThrottleTimeout = setTimeout(function () {
-        var scrollTop = window.pageYOffset;
-        lazyloadImages.forEach(function (img) {
-          if (img.offsetTop < (window.innerHeight + scrollTop)) {
-            img.src = img.dataset.src;
-            img.classList.remove('lazy');
-          }
-        });
-        if (lazyloadImages.length == 0) {
-          document.removeEventListener("scroll", lazyload);
-          window.removeEventListener("resize", lazyload);
-          window.removeEventListener("orientationChange", lazyload);
-        }
-      }, 20);
-    }
-
-    document.addEventListener("scroll", lazyload);
-    window.addEventListener("resize", lazyload);
-    window.addEventListener("orientationChange", lazyload);
-  }
-})
