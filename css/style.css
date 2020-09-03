@@ -564,6 +564,11 @@ nav ul.right {
 }
 
 /*filter css*/
+.filter-wrapper .selected{
+  background: #111112;
+  color: #ffffff;
+}
+
 .filter-wrapper {
     width: 100%;
     margin-bottom: 32px;
@@ -628,6 +633,8 @@ nav ul.right {
     width: 100%;
     display: block;
 }
+
+
 
 /* single project section styles
 /* ========================================== */
