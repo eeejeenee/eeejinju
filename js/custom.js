@@ -168,7 +168,3 @@ jQuery(document).ready(function($){
 //   });
 
 // 이미지 용량 관리해서 로드 빠르게하기
-$("img.lazy").lazyload({
-  threshold : 300,        //뷰포트에 보이기 300px 전에 미리 로딩
-  effect : "fadeIn"       //효과
-});
